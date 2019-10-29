@@ -58,18 +58,29 @@ def generate_points(coefs, min_val, max_val):
     xs = np.arange(min_val, max_val, (max_val-min_val)/100)
     return xs, np.polyval(coefs, xs)
 
-def plot_data(dd, debug=False):
+def plot_data(dd, debug=False, polys=[1,2,3,4]):
     # dd stands for data_dictionary, debug doesn't plot
     if debug:
         number_combinations = 0
-    for column1 in dd.keys():
-        for column2 in dd.keys():
+
+    ncols = len(dd.keys())
+    if not debug:
+        fig = plt.Figure(figsize=(30, 30))   
+    for i1, column1 in enumerate(dd.keys()):
+        for i2, column2 in enumerate(dd.keys()):
             if debug:
                 number_combinations += 1
                 print(column1, column2)
                 # import pdb
                 # pdb.set_trace()
             else:
+                # If my grid is :
+                # 1  2  3  4  5
+                # 6  7  8  9  10
+                # 11 12 13 14 15
+                #  ... then, I want to index it at i1*ncols + i2   (+1)
+                loc = i1*ncols + i2 + 1
+                plt.subplot(ncols, ncols, loc)
                 x = dd[column1]
                 y = dd[column2]
                 
@@ -78,11 +89,16 @@ def plot_data(dd, debug=False):
                 plt.ylabel(column2)
                 plt.title("{0} x {1}".format(column1, column2))
 
-                coefs = np.polyfit(x, y, 1)  # we also want to do this for 2, 3
-                xs, new_line = generate_points(coefs, min(x), max(x))
-                plt.plot(xs, new_line)
-
-                plt.show()
+                for poly_order in polys:
+                    coefs = np.polyfit(x, y, poly_order)  # we also want to do this for 2, 3
+                    xs, new_line = generate_points(coefs, min(x), max(x))
+                    plt.plot(xs, new_line)
+    if not debug:
+        # Note: I have spent no effort making it pretty, and recommend that you do :)
+        plt.legend()
+        # plt.tight_layout()
+        # plt.show()
+        plt.savefig("./my_pairs_plot.png")
 
     if debug:
         print(len(dd.keys()), number_combinations)
