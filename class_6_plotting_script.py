@@ -4,7 +4,6 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 def convert_type(data_value):
     try:
         return int(data_value)
@@ -60,7 +59,7 @@ def generate_points(coefs, min_val, max_val):
     return xs, np.polyval(coefs, xs)
 
 def plot_data(dd, debug=False):
-    # dd stands for data_dictionary
+    # dd stands for data_dictionary, debug doesn't plot
     if debug:
         number_combinations = 0
     for column1 in dd.keys():
