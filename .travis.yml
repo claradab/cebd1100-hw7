@@ -5,5 +5,10 @@ python:
  - 3.5
  - 3.7
 
+before_install:
+ - wget https://www4.stat.ncsu.edu/~boos/var.select/diabetes.rwrite1.txt
+ - mv diabetes.rwrite1.txt diabetes.data
+
 script:
  - python3 class_6_plotting_script.py --help
+ - python3 class_6_plotting_script.py diabetes.data ' ' -H
