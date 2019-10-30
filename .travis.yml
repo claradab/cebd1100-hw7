@@ -4,3 +4,6 @@ python:
  - 3.6
  - 3.5
  - 3.7
+
+script:
+ - python3 class_6_plotting_script.py --help
