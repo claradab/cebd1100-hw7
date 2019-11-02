@@ -11,12 +11,12 @@ before_install:
 
 script:
  - python3 w7clara.py diabetes.data  -H ' '
- - python3 w7clara.py diabetes.data  -p
- - python3 w7clara.py diabetes.data  -s columnthatdoesntexist
- - python3 w7clara.py diabetes.data  -s age
- - python3 w7clara.py diabetes.data  -s sex
- - python3 w7clara.py diabetes.data  -s glu
- - python3 w7clara.py diabetes.data  -i columnthatdoesntexist glu 5
- - python3 w7clara.py diabetes.data  -i y glu 10 
- - python3 w7clara.py diabetes.data  -i y glu 100 
- - python3 w7clara.py diabetes.data  -i sex glu 100
+ - python3 w7clara.py diabetes.data -H ' '  -p
+ - python3 w7clara.py diabetes.data -H ' ' -s columnthatdoesntexist
+ - python3 w7clara.py diabetes.data -H ' ' -s age
+ - python3 w7clara.py diabetes.data -H ' ' -s sex
+ - python3 w7clara.py diabetes.data -H ' ' -s glu
+ - python3 w7clara.py diabetes.data -H ' ' -i columnthatdoesntexist glu 5
+ - python3 w7clara.py diabetes.data -H ' ' -i y glu 10 
+ - python3 w7clara.py diabetes.data -H ' ' -i y glu 100 
+ - python3 w7clara.py diabetes.data -H ' ' -i sex glu 100
