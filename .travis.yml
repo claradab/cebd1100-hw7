@@ -12,3 +12,4 @@ before_install:
 script:
  - python3 class_6_plotting_script.py --help
  - python3 class_6_plotting_script.py diabetes.data ' ' -H
+ 
