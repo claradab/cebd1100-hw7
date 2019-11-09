@@ -5,18 +5,5 @@ python:
  - 3.5
  - 3.7
 
-before_install:
- - wget https://www4.stat.ncsu.edu/~boos/var.select/diabetes.rwrite1.txt
- - mv diabetes.rwrite1.txt diabetes.data
-
 script:
- - python3 w7clara.py diabetes.data  -H ' '
- - python3 w7clara.py diabetes.data -H ' '  -p
- - python3 w7clara.py diabetes.data -H ' ' -s columnthatdoesntexist
- - python3 w7clara.py diabetes.data -H ' ' -s age
- - python3 w7clara.py diabetes.data -H ' ' -s sex
- - python3 w7clara.py diabetes.data -H ' ' -s glu
- - python3 w7clara.py diabetes.data -H ' ' -i columnthatdoesntexist glu 5
- - python3 w7clara.py diabetes.data -H ' ' -i y glu 10 
- - python3 w7clara.py diabetes.data -H ' ' -i y glu 100 
- - python3 w7clara.py diabetes.data -H ' ' -i sex glu 100
+ - python3 w8clara.py
