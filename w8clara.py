@@ -3,7 +3,6 @@ import csv
 import matplotlib.pyplot as plt
 import os.path as op
 import numpy as np
-import plotly.express as px
 import pandas as pd
 from sklearn import datasets
 import seaborn as sns
